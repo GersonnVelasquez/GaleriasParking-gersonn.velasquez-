@@ -48,6 +48,7 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Compile & Unit Tests<------------"
+         sh "npm run test"
       }
     }
 
