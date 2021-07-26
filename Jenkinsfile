@@ -44,12 +44,20 @@ pipeline {
         ])
       }
     }
-    
-    stage('Compile & Unit Tests') {
+
+    stage('Dependencies Installation') {
       steps{
-        echo "------------>Compile & Unit Tests<------------"
-         sh "npm install"
-         sh "npm run test"
+        echo "------------>Dependencies Installation<------------"
+        sh "npm install"
+      }
+    }
+
+         
+    
+    stage('Unit Tests') {
+      steps{
+        echo "------------>Unit Tests<------------"
+         sh "ng test --browsers=ChromeHeadless --watch=false"
       }
     }
 
@@ -66,6 +74,7 @@ pipeline {
       stage('Build') {
         steps {
           echo "------------>Build<------------"
+           sh "ng build --prod"
         }
       }  
       
