@@ -1,0 +1,28 @@
+@import "../../../../assets/scss/modules/var";
+nav {
+    height: 2rem;
+    background-color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    .options {
+        display: flex;
+        gap: 1rem;
+        .option {
+            color: $secondary-color;
+            text-decoration: none;
+            border-style: solid;
+            border-color: $accent-color;
+            border-width: 1px;
+            padding: 10px;
+            &:hover {
+                border-color: $hover-color;
+                color: $hover-color;
+            }
+        }
+    }
+    .title {
+        color: $accent-color;
+    }
+}
