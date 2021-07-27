@@ -1,7 +1,11 @@
 {
-  "/prospectos-vida": {
-    "target": "http://192.168.1.115:9002",
-    "logLevel": "debug"
+  "/jsonApiServer": {
+    "target": "http://localhost:3000",
+    "logLevel": "debug",
+    "secure": false,
+    "pathRewrite": {
+      "^/jsonApiServer": ""
+    }
   }
 
 }

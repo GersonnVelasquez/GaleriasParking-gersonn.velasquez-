@@ -1,0 +1,16 @@
+<h1>Asignar vehiculo a parqueo</h1>
+
+<form [formGroup]="asignarVehiculoForm" (ngSubmit)="asignar()">
+    <label>Ubicacion</label>
+    <select validar id="Ubicacion" name="Ubicacion" formControlName="Ubicacion">
+        <option *ngFor="let parqueo of parqueosDisponibles; trackBy: 'id' | trackBy" [value]="parqueo.Ubicacion">{{parqueo.Ubicacion}}</option>
+    </select>
+    <label>No. Placa</label>
+    <input validar id="NoPlaca" name="NoPlaca" formControlName="NoPlaca" type="text">
+    <label>Marca</label>
+    <input validar id="Marca" name="Marca" formControlName="Marca" type="text">
+    <label>Color</label>
+    <input validar id="Color" name="Color" formControlName="Color" type="text">
+    <label>Entrada: {{getDate()}}</label>
+    <button [disabled]="asignarVehiculoForm.invalid" type="submit">Asignar</button>
+</form>

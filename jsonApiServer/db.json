@@ -1,37 +1,49 @@
 {
-  "posts": [
+  "parqueos": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "Color": "Rojo",
+      "Disponible": false,
+      "Entrada": "2021-07-27T01:46:36.155Z",
+      "Marca": "Honda",
+      "NoPlaca": "655d22",
+      "Ubicacion": "A1"
     },
     {
       "id": 2,
-      "title": "json-server",
-      "author": "typicode"
+      "Color": "Negro",
+      "Disponible": false,
+      "Entrada": "2021-07-27T01:47:39.376Z",
+      "Marca": "Toyota",
+      "NoPlaca": "EF4QWEQ",
+      "Ubicacion": "A2"
     },
     {
-      "title": "json-server",
-      "author": "typicode",
-      "id": 4
+      "id": 3,
+      "Color": "124123",
+      "Disponible": false,
+      "Entrada": "2021-07-27T01:48:28.658Z",
+      "Marca": "123123",
+      "NoPlaca": "qweqwe",
+      "Ubicacion": "A3"
     },
     {
-      "title": "json-server",
-      "author": "typicode",
-      "person": {
-        "nombre": "gersonn"
-      },
-      "id": 5
-    }
-  ],
-  "comments": [
+      "id": 4,
+      "Color": "qweqwe",
+      "Disponible": false,
+      "Entrada": "2021-07-27T02:03:33.165Z",
+      "Marca": "qweqwe",
+      "NoPlaca": "asdasd",
+      "Ubicacion": "A4"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 5,
+      "Disponible": true,
+      "Ubicacion": "A5",
+      "Color": null,
+      "Entrada": null,
+      "Marca": null,
+      "NoPlaca": null
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

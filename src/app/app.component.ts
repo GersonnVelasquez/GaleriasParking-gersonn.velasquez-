@@ -10,8 +10,7 @@ import { MenuItem } from '@core/modelo/menu-item';
 export class AppComponent {
   title = 'app-base';
   public options: MenuItem[] = [
-    { url: '/Resumen', nombre: 'Resumen' },
-    { url: '/AsignarParqueo', nombre: 'Asignar Parqueo' },
-    { url: '/NuevoEspacio', nombre: 'Nuevo Espacio' }
+    { url: '/parqueo/resumen', nombre: 'Resumen' },
+    { url: '/parqueo/asignar', nombre: 'Asignar Parqueo' }
   ];
 }

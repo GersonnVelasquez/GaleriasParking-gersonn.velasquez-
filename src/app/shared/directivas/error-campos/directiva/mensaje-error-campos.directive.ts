@@ -153,7 +153,7 @@ export class MensajeErrorCamposDirective implements OnInit, OnDestroy, AfterView
     if (this.validacionInicial) {
       return this.validacionInicial;
     } else {
-      return this.formControl.dirty || this.formControl.touched;
+      return this.formControl.dirty && this.formControl.touched;
     }
   }
 

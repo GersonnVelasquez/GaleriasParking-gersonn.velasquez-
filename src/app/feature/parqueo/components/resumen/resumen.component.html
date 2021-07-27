@@ -1,0 +1,8 @@
+<div class="container">
+
+    <div *ngFor="let parqueo of parqueos; trackBy: 'id' | trackBy" class="card">
+        <app-parqueo-card [parqueo]="parqueo"></app-parqueo-card>
+    </div>
+
+    
+</div>
