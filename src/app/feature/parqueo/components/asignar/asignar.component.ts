@@ -40,20 +40,29 @@ export class AsignarComponent implements OnInit {
   }
 
   asignar() {
-
-    const parqueoAsignado: Parqueo = {
-      id: this.parqueosDisponibles.filter(i => i.Ubicacion = this.asignarVehiculoForm.get('Ubicacion').value)[0].id,
-      Color: this.asignarVehiculoForm.get('Color').value,
-      Disponible: false,
-      Entrada: new Date(Date.now()),
-      Marca: this.asignarVehiculoForm.get('Marca').value,
-      NoPlaca: this.asignarVehiculoForm.get('NoPlaca').value,
-      Ubicacion: this.asignarVehiculoForm.get('Ubicacion').value,
-    };
-
-    return this.parqueo.asignarParqueo(parqueoAsignado).subscribe(() => {
+    this.parqueo.asignarParqueo(this.getParqueoAsignado()).subscribe(() => {
       this.asignarVehiculoForm.reset();
-      this.location.back();
+      this.back();
     });
+  }
+
+  back() {
+    this.location.back();
+  }
+
+  getParqueoAsignado(): Parqueo {
+    return new Parqueo(
+      this.getIdByUbicacion(this.asignarVehiculoForm.get('Ubicacion').value),
+      this.asignarVehiculoForm.get('Ubicacion').value,
+      this.asignarVehiculoForm.get('NoPlaca').value,
+      this.asignarVehiculoForm.get('Marca').value,
+      this.asignarVehiculoForm.get('Color').value,
+      new Date(Date.now()),
+      false
+    );
+  }
+
+  getIdByUbicacion(ubicacion: string): number {
+    return this.parqueosDisponibles.filter(i => i.Ubicacion = ubicacion)[0].id;
   }
 }

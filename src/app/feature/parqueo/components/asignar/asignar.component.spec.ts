@@ -24,6 +24,9 @@ describe('AsignarComponent', () => {
   ParqueoServiceStub = {
     consultarDisponibles: () => {
       return Rx.of(mockParqueos);
+    },
+    asignarParqueo: () => {
+      return Rx.of(true);
     }
   };
 
@@ -52,5 +55,25 @@ describe('AsignarComponent', () => {
     expect(component.parqueosDisponibles).toEqual(mockParqueos);
   });
 
+  it('Debe regresar objeto tipo parqueo', () => {
+    component.asignarVehiculoForm.get('Ubicacion').setValue('A1');
+    component.asignarVehiculoForm.get('NoPlaca').setValue('GASS123123');
+    component.asignarVehiculoForm.get('Marca').setValue('Honda');
+    component.asignarVehiculoForm.get('Color').setValue('Azul');
+    expect(component.getParqueoAsignado()).toBeInstanceOf(Parqueo);
+  });
 
+  it('Debe regresar el id correcto del parqueo', () => {
+    component.parqueosDisponibles = mockParqueos;
+    expect(component.getIdByUbicacion('A1')).toEqual(1);
+  });
+
+  it('Debe resetear formulario al asignar parqueo', () => {
+    component.asignarVehiculoForm.get('Ubicacion').setValue('A1');
+    component.asignarVehiculoForm.get('NoPlaca').setValue('GASS123123');
+    component.asignarVehiculoForm.get('Marca').setValue('Honda');
+    component.asignarVehiculoForm.get('Color').setValue('Azul');
+    component.asignar();
+    expect(component.asignarVehiculoForm.get('Ubicacion').value).toEqual(null);
+  });
 });
