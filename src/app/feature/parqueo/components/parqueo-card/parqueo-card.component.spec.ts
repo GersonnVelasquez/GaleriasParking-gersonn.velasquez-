@@ -17,7 +17,7 @@ describe('ParqueoCardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ParqueoCardComponent);
     component = fixture.componentInstance;
-    component.parqueo = new Parqueo(1, "A1", "FDFA123", "Honda", "Negro", new Date(Date.now()), false);
+    component.parqueo = new Parqueo(1, 'A1', 'FDFA123', 'Honda', 'Negro', new Date(Date.now()), false);
     fixture.detectChanges();
   });
 

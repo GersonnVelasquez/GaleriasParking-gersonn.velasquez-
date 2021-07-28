@@ -4,10 +4,10 @@ export class Parqueo {
     NoPlaca: string;
     Marca: string;
     Color: string;
-    Entrada: Date ;
+    Entrada: Date;
     Disponible: boolean;
 
-    constructor(id: number, ubicacion: string, noPlaca:string, marca:string, color:string, entrada: Date , disponible:boolean) {
+    constructor(id: number, ubicacion: string, noPlaca: string, marca: string, color: string, entrada: Date, disponible: boolean) {
         this.id = id;
         this.Ubicacion = ubicacion;
         this.NoPlaca = noPlaca;
@@ -16,5 +16,5 @@ export class Parqueo {
         this.Entrada = entrada;
         this.Disponible = disponible;
     }
-
 }
+

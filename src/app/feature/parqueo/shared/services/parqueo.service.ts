@@ -3,11 +3,8 @@ import { HttpService } from '@core/services/http.service';
 import { environment } from 'src/environments/environment';
 import { Parqueo } from '../models/parqueo.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ParqueoService {
-
 
   constructor(protected http: HttpService) { }
 
@@ -21,7 +18,7 @@ export class ParqueoService {
 
   public asignarParqueo(parqueoAsignado: Parqueo) {
     return this.http.doPut<Parqueo, boolean>(` ${environment.endpoint}/parqueos/${parqueoAsignado.id}`, parqueoAsignado,
-                                                this.http.optsName('Asignar Parqueo / Update'));
+      this.http.optsName('Asignar Parqueo / Update'));
   }
 
 }

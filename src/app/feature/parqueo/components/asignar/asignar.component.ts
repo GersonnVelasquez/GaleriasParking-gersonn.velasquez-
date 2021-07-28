@@ -20,10 +20,9 @@ export class AsignarComponent implements OnInit {
   }
 
   async getParqueosDisponibles() {
-    this.parqueo.consultarDisponibles().subscribe(parqueos=>{
-      this.parqueosDisponibles = parqueos ;
+    this.parqueo.consultarDisponibles().subscribe(parqueos => {
+      this.parqueosDisponibles = parqueos;
     });
-  
   }
 
   crearFormulario() {
@@ -37,25 +36,24 @@ export class AsignarComponent implements OnInit {
 
 
   getDate() {
-    return this.datePipe.transform(new Date(Date.now()), 'dd/MM/yyyy hh:mm')
+    return this.datePipe.transform(new Date(Date.now()), 'dd/MM/yyyy hh:mm');
   }
 
   asignar() {
 
-    let parqueoAsignado: Parqueo = {
-      id: this.parqueosDisponibles.filter(i => i.Ubicacion = this.asignarVehiculoForm.controls["Ubicacion"].value)[0].id,
-      Color: this.asignarVehiculoForm.controls["Color"].value,
+    const parqueoAsignado: Parqueo = {
+      id: this.parqueosDisponibles.filter(i => i.Ubicacion = this.asignarVehiculoForm.get('Ubicacion').value)[0].id,
+      Color: this.asignarVehiculoForm.get('Color').value,
       Disponible: false,
       Entrada: new Date(Date.now()),
-      Marca: this.asignarVehiculoForm.controls["Marca"].value,
-      NoPlaca: this.asignarVehiculoForm.controls["NoPlaca"].value,
-      Ubicacion: this.asignarVehiculoForm.controls["Ubicacion"].value,
-    }
+      Marca: this.asignarVehiculoForm.get('Marca').value,
+      NoPlaca: this.asignarVehiculoForm.get('NoPlaca').value,
+      Ubicacion: this.asignarVehiculoForm.get('Ubicacion').value,
+    };
 
-   return this.parqueo.asignarParqueo(parqueoAsignado).subscribe(() => {
+    return this.parqueo.asignarParqueo(parqueoAsignado).subscribe(() => {
       this.asignarVehiculoForm.reset();
       this.location.back();
     });
-
   }
 }

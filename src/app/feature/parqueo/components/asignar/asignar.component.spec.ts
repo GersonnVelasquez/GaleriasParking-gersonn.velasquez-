@@ -10,20 +10,20 @@ describe('AsignarComponent', () => {
   let component: AsignarComponent;
   let fixture: ComponentFixture<AsignarComponent>;
   let ParqueoServiceStub: Partial<ParqueoService>;
-  let mockParqueos:Parqueo[] = [
+  const mockParqueos: Parqueo[] = [
     {
-      Color:null,
+      Color: null,
       Disponible: true,
       Entrada: null,
-      Marca:null,
-      NoPlaca:null,
-      Ubicacion:"A1",
-      id:1
+      Marca: null,
+      NoPlaca: null,
+      Ubicacion: 'A1',
+      id: 1
     }
-  ]
+  ];
   ParqueoServiceStub = {
-    consultarDisponibles: ()=>{
-      return Rx.of(mockParqueos)
+    consultarDisponibles: () => {
+      return Rx.of(mockParqueos);
     }
   };
 
@@ -32,7 +32,7 @@ describe('AsignarComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [AsignarComponent],
       imports: [SharedModule],
-      providers: [{ provide: ParqueoService, useValue: ParqueoServiceStub },DatePipe ]
+      providers: [{ provide: ParqueoService, useValue: ParqueoServiceStub }, DatePipe]
     })
       .compileComponents();
   });
