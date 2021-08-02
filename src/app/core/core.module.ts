@@ -8,7 +8,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
-import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -21,7 +20,6 @@ import { DatePipe } from '@angular/common';
   providers: [
     HttpService,
     SecurityGuard,
-    DatePipe,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: ErrorHandler, useClass: ManejadorError }

@@ -3,6 +3,14 @@ import { Parqueo } from '../../shared/models/parqueo.model';
 import { ParqueoService } from '../../shared/services/parqueo.service';
 import { Router } from '@angular/router';
 
+const timeToLoop = 60000;
+const Sabado = 6;
+const Domingo = 0;
+const TarifaNormal = 2;
+const TarifaFinDeSemana = 3;
+const FormulaConversionHoras = 36e5;
+
+
 @Component({
   selector: 'app-despachar',
   templateUrl: './despachar.component.html'
@@ -35,7 +43,7 @@ export class DespacharComponent implements OnInit {
   updateFechaHora() {
     setTimeout(() => {
       this.fechaHora = new Date(Date.now());
-    }, 60000);
+    }, timeToLoop);
   }
 
   getParqueosOcupados() {
@@ -44,11 +52,13 @@ export class DespacharComponent implements OnInit {
     });
   }
 
-  getTotalHoras(): number {
+  getTotalHoras() {
     if (this.parqueoSelected && this.fechaHora) {
       const entrada = new Date(this.parqueoSelected.Entrada).getTime();
-      return Math.ceil(Math.abs(entrada - this.fechaHora.getTime()) / 36e5);
+      return Math.ceil(Math.abs(entrada - this.fechaHora.getTime()) / FormulaConversionHoras);
     }
+
+    return 0;
   }
 
   getTotalPagar() {
@@ -56,10 +66,10 @@ export class DespacharComponent implements OnInit {
   }
 
   getTarifa() {
-    if (this.fechaHora.getDay() === 6 || this.fechaHora.getDay() === 0) {
-      return 3;
+    if (this.fechaHora.getDay() === Sabado || this.fechaHora.getDay() === Domingo) {
+      return TarifaFinDeSemana;
     } else {
-      return 2;
+      return TarifaNormal;
     }
   }
 

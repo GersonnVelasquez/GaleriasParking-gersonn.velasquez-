@@ -24,9 +24,8 @@ export class AuthInterceptor implements HttpInterceptor {
           case FORBIDDEN:
             this.router.navigate(['/home']);
             break;
-          default:
-            return throwError(error);
         }
+        return throwError(error);
       })
     );
   }

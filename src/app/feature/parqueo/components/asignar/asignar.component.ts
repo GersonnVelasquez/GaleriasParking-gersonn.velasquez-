@@ -23,9 +23,10 @@ export class AsignarComponent implements OnInit {
 
 
   updateFechaHora() {
+    const timeToLoop = 60000;
     setTimeout(() => {
       this.fechaHora = new Date(Date.now());
-    }, 60000);
+    }, timeToLoop);
   }
 
   async getParqueosDisponibles() {
