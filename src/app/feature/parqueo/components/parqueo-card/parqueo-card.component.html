@@ -1,7 +1,0 @@
-<div class="card" [ngClass]="{'disponible': parqueo.Disponible, 'ocupado':!parqueo.Disponible}">
-    <h2>{{parqueo.Ubicacion}}</h2>
-    <span class="information"><strong>No. Placa:</strong> {{parqueo?.NoPlaca}}</span>
-    <span class="information"><strong>Marca:</strong> {{parqueo?.Marca}}</span>
-    <span class="information"><strong>Color:</strong> {{parqueo?.Color}}</span>
-    <span class="information"><strong>Entrada:</strong> {{getDate(parqueo?.Entrada) | date: 'yyyy-MM-dd' }}</span>
-</div>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Parqueo } from '../../shared/models/parqueo.model';
+import { Parqueo } from '../../models/parqueo.model';
 
 
 @Component({
@@ -16,14 +16,11 @@ export class ParqueoCardComponent implements OnInit {
   }
 
   getDate(date: string) {
-
     if (date) {
       return new Date(date);
     } else {
       return null;
     }
-
-
   }
 
 }

@@ -7,10 +7,11 @@
 @import "assets/scss/partials/grids";
 @import "assets/scss/partials/global";
 @import "assets/scss/partials/buttons";
-
+@import "assets/scss/partials/typography";
 
 html, body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Roboto-Regular';
 }

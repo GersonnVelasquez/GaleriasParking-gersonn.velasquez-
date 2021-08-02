@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ParqueoCardComponent } from './components/parqueo-card/parqueo-card.component';
+import { ParqueoCardComponent } from './shared/components/parqueo-card/parqueo-card.component';
 import { AsignarComponent } from './components/asignar/asignar.component';
 import { ResumenComponent } from './components/resumen/resumen.component';
 import { ParqueoComponent } from './components/parqueo/parqueo.component';
 import { ParqueiRoutingModule } from './parqueo-routing.module';
 import { SharedModule } from '@shared/shared.module';
+import { ParqueoService } from './shared/services/parqueo.service';
+import { DespacharComponent } from './components/despachar/despachar.component';
 
 
 
@@ -14,12 +16,14 @@ import { SharedModule } from '@shared/shared.module';
     ParqueoCardComponent,
     AsignarComponent,
     ResumenComponent,
-    ParqueoComponent
+    ParqueoComponent,
+    DespacharComponent
   ],
   imports: [
     ParqueiRoutingModule,
     CommonModule,
     SharedModule
-  ]
+  ],
+  providers: [ParqueoService]
 })
 export class ParqueoModule { }

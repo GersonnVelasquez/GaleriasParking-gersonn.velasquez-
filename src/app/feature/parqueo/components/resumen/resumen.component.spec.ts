@@ -4,22 +4,33 @@ import { ParqueoService } from '../../shared/services/parqueo.service';
 import * as Rx from 'rxjs';
 import { ResumenComponent } from './resumen.component';
 import { SharedModule } from '@shared/shared.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ResumenComponent', () => {
   let component: ResumenComponent;
   let fixture: ComponentFixture<ResumenComponent>;
   let ParqueoServiceStub: Partial<ParqueoService>;
   const mockParqueos: Parqueo[] = [
-    {
-      Color: 'Azul',
-      Disponible: false,
-      Entrada: new Date(Date.now()),
-      Marca: 'Honda',
-      NoPlaca: 'HSJ343',
-      Ubicacion: 'A1',
-      id: 1
-    }
+    new Parqueo(
+      1,
+      'A1',
+      'HSJ343',
+      'Honda',
+      'Azul',
+      new Date(Date.now()),
+      false
+    ),
+    new Parqueo(
+      2,
+      'A2',
+      'HSW33',
+      'Toyota',
+      'Rojo',
+      new Date(Date.now()),
+      false
+    )
   ];
+
   ParqueoServiceStub = {
     consultar: () => {
       return Rx.of(mockParqueos);
@@ -29,7 +40,7 @@ describe('ResumenComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ResumenComponent],
-      imports: [SharedModule],
+      imports: [SharedModule, RouterTestingModule],
       providers: [{ provide: ParqueoService, useValue: ParqueoServiceStub }]
     })
       .compileComponents();
@@ -41,7 +52,20 @@ describe('ResumenComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Debe crearse', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('Debe consultar parqueos en ngOnInit', () => {
+    component.ngOnInit();
+    expect(component.parqueos).toEqual(mockParqueos);
+  });
+
+
+  it('Debe mostrar tarjetas de parqueo', () => {
+    const parqueosHTMLCards = fixture.debugElement.nativeElement.querySelectorAll('app-parqueo-card');
+    expect(parqueosHTMLCards.length).toEqual(mockParqueos.length);
+  });
+
 });

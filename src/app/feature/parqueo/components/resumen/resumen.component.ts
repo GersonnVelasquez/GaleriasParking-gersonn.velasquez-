@@ -4,8 +4,7 @@ import { ParqueoService } from '../../shared/services/parqueo.service';
 
 @Component({
   selector: 'app-resumen',
-  templateUrl: './resumen.component.html',
-  styleUrls: ['./resumen.component.scss']
+  templateUrl: './resumen.component.html'
 })
 export class ResumenComponent implements OnInit {
 

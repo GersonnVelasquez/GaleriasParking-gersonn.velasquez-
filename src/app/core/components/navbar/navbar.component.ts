@@ -3,8 +3,7 @@ import { MenuItem } from '@core/modelo/menu-item';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
 

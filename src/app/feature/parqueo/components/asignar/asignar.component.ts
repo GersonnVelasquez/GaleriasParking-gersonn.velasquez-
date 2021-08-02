@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Parqueo } from '../../shared/models/parqueo.model';
 import { ParqueoService } from '../../shared/services/parqueo.service';
-import { DatePipe, Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-asignar',
@@ -12,15 +12,25 @@ import { DatePipe, Location } from '@angular/common';
 export class AsignarComponent implements OnInit {
   asignarVehiculoForm: FormGroup;
   parqueosDisponibles: Parqueo[];
-  constructor(private parqueo: ParqueoService, private datePipe: DatePipe, private location: Location) { }
+  fechaHora: Date = new Date(Date.now());
+
+  constructor(private parqueoService: ParqueoService, private router: Router) { }
 
   ngOnInit(): void {
     this.crearFormulario();
     this.getParqueosDisponibles();
+    this.updateFechaHora();
+  }
+
+
+  updateFechaHora() {
+    setTimeout(() => {
+      this.fechaHora = new Date(Date.now());
+    }, 60000);
   }
 
   async getParqueosDisponibles() {
-    this.parqueo.consultarDisponibles().subscribe(parqueos => {
+    this.parqueoService.consultarDisponibles().subscribe(parqueos => {
       this.parqueosDisponibles = parqueos;
     });
   }
@@ -35,19 +45,15 @@ export class AsignarComponent implements OnInit {
   }
 
 
-  getDate() {
-    return this.datePipe.transform(new Date(Date.now()), 'dd/MM/yyyy hh:mm');
-  }
-
   asignar() {
-    this.parqueo.asignarParqueo(this.getParqueoAsignado()).subscribe(() => {
+    this.parqueoService.asignarDespacharParqueo(this.getParqueoAsignado()).subscribe(() => {
       this.asignarVehiculoForm.reset();
-      this.back();
+      this.toResumen();
     });
   }
 
-  back() {
-    this.location.back();
+  toResumen() {
+    this.router.navigateByUrl('/parqueo/resumen');
   }
 
   getParqueoAsignado(): Parqueo {
@@ -57,12 +63,12 @@ export class AsignarComponent implements OnInit {
       this.asignarVehiculoForm.get('NoPlaca').value,
       this.asignarVehiculoForm.get('Marca').value,
       this.asignarVehiculoForm.get('Color').value,
-      new Date(Date.now()),
+      this.fechaHora,
       false
     );
   }
 
   getIdByUbicacion(ubicacion: string): number {
-    return this.parqueosDisponibles.filter(i => i.Ubicacion = ubicacion)[0].id;
+    return this.parqueosDisponibles.filter(i => i.Ubicacion === ubicacion)[0].id;
   }
 }

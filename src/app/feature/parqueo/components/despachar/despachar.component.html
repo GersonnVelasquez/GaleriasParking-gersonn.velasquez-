@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="text-center">Despachar Parqueo</h1>
+
+    <div class="mb-3">
+        <label for="Ubicacion" class="form-label">Ubicación:</label>
+        <select #Parqueo (change)="setParqueoInfo(Parqueo.value)" class="form-select" id="Ubicacion" name="Ubicacion">
+            <option selected disabled>Seleccion un parqueo</option>
+            <option *ngFor="let parqueo of parqueosOcupados; trackBy: 'id' | trackBy" [value]="parqueo.Ubicacion">
+                {{parqueo.Ubicacion}}
+            </option>
+        </select>
+    </div>
+
+    <p><strong>No. Placa: </strong>{{parqueoSelected?.NoPlaca}}</p>
+    <p><strong>Marca: </strong>{{parqueoSelected?.Marca}}</p>
+    <p><strong>Color: </strong>{{parqueoSelected?.Color}}</p>
+    <p><strong>Entrada: </strong>{{parqueoSelected?.Entrada | date: 'hh:mm a'}}</p>
+    <p><strong>Salida: </strong><span *ngIf="parqueoSelected">{{ fechaHora | date: 'hh:mm a' }}</span></p>
+    <p><strong>Total Horas: </strong>{{getTotalHoras() | number}}</p>
+    <p><strong>Tarifa: </strong><span *ngIf="parqueoSelected">{{getTarifa() | currency: '$' }} por Hora</span></p>
+    <p><strong>Total Pagar: </strong>{{getTotalPagar() | currency: '$'}}</p>
+
+
+    <button [disabled]="!parqueoSelected" (click)="despachar()" type="button" class="btn btn-primary">Despachar</button>
+</div>

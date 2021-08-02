@@ -1,0 +1,17 @@
+<div class="card my-2" >
+    <div id="Header" class="card-header textWhite " [ngClass]="{'bg-success': parqueo.Disponible, 'bg-danger':!parqueo.Disponible}">
+      <span id="Ubicacion">{{parqueo.Ubicacion}}</span>  
+    </div>
+    <div class="card-body d-flex justify-content-center flex-column">
+        <div *ngIf="parqueo?.Disponible" class="d-flex align-items-center justify-content-center w-100 h-100">
+            <p id="Disponible"><strong class="card-text">Parqueo disponible</strong></p>
+        </div>
+        <div id="infoOcupado" *ngIf="!parqueo?.Disponible">
+            <p id="NoPlaca" class="card-text"><strong>No. Placa:</strong> {{parqueo?.NoPlaca}}</p>
+            <p id="Marca" class="card-text"><strong>Marca:</strong> {{parqueo?.Marca}}</p>
+            <p id="Color" class="card-text"><strong>Color:</strong> {{parqueo?.Color}}</p>
+            <p id="Entrada" class="card-text"><strong>Entrada:</strong> {{getDate(parqueo?.Entrada) | date: 'hh:mm a'}}</p>
+        </div>
+    </div>
+    <div></div>
+</div>

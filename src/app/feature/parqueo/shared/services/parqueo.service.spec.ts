@@ -25,7 +25,7 @@ describe('ParqueoService', () => {
 
   it('debe asignar un parqueo', () => {
     const parqueo = new Parqueo(1, 'A1', 'FDFA123', 'Honda', 'Negro', new Date(Date.now()), false);
-    service.asignarParqueo(parqueo).subscribe(res => {
+    service.asignarDespacharParqueo(parqueo).subscribe(res => {
       expect(res).toEqual(true);
     });
   });

@@ -20,6 +20,6 @@ export class ErrorCamposPlantillaComponent {
     }
   }
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) { }
 }
 

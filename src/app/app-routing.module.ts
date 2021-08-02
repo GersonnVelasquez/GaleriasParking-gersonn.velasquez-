@@ -5,9 +5,8 @@ import { HomeComponent } from '@home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
-  { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
+  { path: '', redirectTo: '/parqueo', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, canActivate: [SecurityGuard] },
   { path: 'parqueo', loadChildren: () => import('./feature/parqueo/parqueo.module').then(mod => mod.ParqueoModule) }
 ];
 

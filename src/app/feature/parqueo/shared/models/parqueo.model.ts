@@ -16,5 +16,13 @@ export class Parqueo {
         this.Entrada = entrada;
         this.Disponible = disponible;
     }
+
+    public reset() {
+        this.NoPlaca = null;
+        this.Marca = null;
+        this.Color = null;
+        this.Entrada = null;
+        this.Disponible = true;
+    }
 }
 

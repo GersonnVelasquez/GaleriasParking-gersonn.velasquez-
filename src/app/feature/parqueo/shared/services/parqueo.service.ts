@@ -16,7 +16,13 @@ export class ParqueoService {
     return this.http.doGet<Parqueo[]>(`${environment.endpoint}/parqueos?Disponible=true`, this.http.optsName('consultar parqueos disponibles'));
   }
 
-  public asignarParqueo(parqueoAsignado: Parqueo) {
+  public consultarOcupados() {
+    return this.http.doGet<Parqueo[]>(`${environment.endpoint}/parqueos?Disponible=false`,
+                                      this.http.optsName('consultar parqueos ocupados'));
+  }
+
+
+  public asignarDespacharParqueo(parqueoAsignado: Parqueo) {
     return this.http.doPut<Parqueo, boolean>(` ${environment.endpoint}/parqueos/${parqueoAsignado.id}`, parqueoAsignado,
       this.http.optsName('Asignar Parqueo / Update'));
   }

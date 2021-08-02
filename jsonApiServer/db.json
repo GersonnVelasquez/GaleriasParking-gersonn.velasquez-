@@ -2,48 +2,48 @@
   "parqueos": [
     {
       "id": 1,
-      "Color": "Rojo",
-      "Disponible": false,
-      "Entrada": "2021-07-27T01:46:36.155Z",
-      "Marca": "Honda",
-      "NoPlaca": "655d22",
-      "Ubicacion": "A1"
+      "Ubicacion": "A1",
+      "NoPlaca": "qwqw",
+      "Marca": "3",
+      "Color": "qwqw",
+      "Entrada": "2021-08-02T18:33:12.300Z",
+      "Disponible": false
     },
     {
       "id": 2,
-      "Color": "Negro",
-      "Disponible": false,
-      "Entrada": "2021-07-27T01:47:39.376Z",
-      "Marca": "Toyota",
-      "NoPlaca": "EF4QWEQ",
-      "Ubicacion": "A2"
+      "Ubicacion": "A2",
+      "NoPlaca": null,
+      "Marca": null,
+      "Color": null,
+      "Entrada": null,
+      "Disponible": true
     },
     {
       "id": 3,
-      "Color": "124123",
-      "Disponible": false,
-      "Entrada": "2021-07-27T01:48:28.658Z",
-      "Marca": "123123",
-      "NoPlaca": "qweqwe",
-      "Ubicacion": "A3"
+      "Ubicacion": "A3",
+      "NoPlaca": null,
+      "Marca": null,
+      "Color": null,
+      "Entrada": null,
+      "Disponible": true
     },
     {
       "id": 4,
-      "Color": "qweqwe",
-      "Disponible": false,
-      "Entrada": "2021-07-27T02:03:33.165Z",
-      "Marca": "qweqwe",
-      "NoPlaca": "asdasd",
-      "Ubicacion": "A4"
+      "Ubicacion": "A4",
+      "NoPlaca": null,
+      "Marca": null,
+      "Color": null,
+      "Entrada": null,
+      "Disponible": true
     },
     {
       "id": 5,
-      "Disponible": true,
       "Ubicacion": "A5",
+      "NoPlaca": null,
+      "Marca": null,
       "Color": null,
       "Entrada": null,
-      "Marca": null,
-      "NoPlaca": null
+      "Disponible": true
     }
   ]
 }
