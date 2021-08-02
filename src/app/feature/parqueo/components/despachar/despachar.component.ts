@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-despachar',
-  templateUrl: './despachar.component.html',
-  styleUrls: ['./despachar.component.scss']
+  templateUrl: './despachar.component.html'
 })
 export class DespacharComponent implements OnInit {
   parqueosOcupados: Parqueo[];
@@ -66,11 +65,12 @@ export class DespacharComponent implements OnInit {
 
 
   despachar() {
-    this.parqueoSelected.reset();
     this.parqueoService.asignarDespacharParqueo(this.parqueoSelected).subscribe(() => {
+      this.parqueoSelected.reset();
       this.toResumen();
     });
   }
+
 
   toResumen() {
     this.router.navigateByUrl('/parqueo/resumen');

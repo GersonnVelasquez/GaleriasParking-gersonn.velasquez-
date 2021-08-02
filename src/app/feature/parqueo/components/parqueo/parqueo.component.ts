@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-parqueo',
-  templateUrl: './parqueo.component.html',
-  styleUrls: ['./parqueo.component.scss']
+  templateUrl: './parqueo.component.html'
 })
 export class ParqueoComponent implements OnInit {
 

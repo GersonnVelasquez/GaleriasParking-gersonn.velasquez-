@@ -6,8 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-asignar',
-  templateUrl: './asignar.component.html',
-  styleUrls: ['./asignar.component.scss']
+  templateUrl: './asignar.component.html'
 })
 export class AsignarComponent implements OnInit {
   asignarVehiculoForm: FormGroup;

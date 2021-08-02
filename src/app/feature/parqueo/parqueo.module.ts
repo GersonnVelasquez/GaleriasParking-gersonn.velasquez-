@@ -4,7 +4,7 @@ import { ParqueoCardComponent } from './shared/components/parqueo-card/parqueo-c
 import { AsignarComponent } from './components/asignar/asignar.component';
 import { ResumenComponent } from './components/resumen/resumen.component';
 import { ParqueoComponent } from './components/parqueo/parqueo.component';
-import { ParqueiRoutingModule } from './parqueo-routing.module';
+import { ParqueoRoutingModule } from './parqueo-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { ParqueoService } from './shared/services/parqueo.service';
 import { DespacharComponent } from './components/despachar/despachar.component';
@@ -20,7 +20,7 @@ import { DespacharComponent } from './components/despachar/despachar.component';
     DespacharComponent
   ],
   imports: [
-    ParqueiRoutingModule,
+    ParqueoRoutingModule,
     CommonModule,
     SharedModule
   ],

@@ -18,7 +18,7 @@ export class ParqueoService {
 
   public consultarOcupados() {
     return this.http.doGet<Parqueo[]>(`${environment.endpoint}/parqueos?Disponible=false`,
-                                      this.http.optsName('consultar parqueos ocupados'));
+      this.http.optsName('consultar parqueos ocupados'));
   }
 
 

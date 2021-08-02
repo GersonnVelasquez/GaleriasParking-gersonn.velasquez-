@@ -1,7 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SecurityGuard } from './guard/security.guard';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptor/token-interceptor';
 import { AuthInterceptor } from './interceptor/auth-interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -14,7 +14,8 @@ import { DatePipe } from '@angular/common';
   declarations: [NavbarComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   exports: [NavbarComponent],
   providers: [

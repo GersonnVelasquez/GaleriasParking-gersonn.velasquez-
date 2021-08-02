@@ -3,7 +3,7 @@
 
     <div class="mb-3">
         <label for="Ubicacion" class="form-label">Ubicación:</label>
-        <select #Parqueo (change)="setParqueoInfo(Parqueo.value)" class="form-select" id="Ubicacion" name="Ubicacion">
+        <select #Parqueo (change)="setParqueoInfo(Parqueo.value)" class="form-select" id="UbicacionSelect" name="Ubicacion">
             <option selected disabled>Seleccion un parqueo</option>
             <option *ngFor="let parqueo of parqueosOcupados; trackBy: 'id' | trackBy" [value]="parqueo.Ubicacion">
                 {{parqueo.Ubicacion}}
@@ -11,15 +11,15 @@
         </select>
     </div>
 
-    <p><strong>No. Placa: </strong>{{parqueoSelected?.NoPlaca}}</p>
-    <p><strong>Marca: </strong>{{parqueoSelected?.Marca}}</p>
-    <p><strong>Color: </strong>{{parqueoSelected?.Color}}</p>
-    <p><strong>Entrada: </strong>{{parqueoSelected?.Entrada | date: 'hh:mm a'}}</p>
-    <p><strong>Salida: </strong><span *ngIf="parqueoSelected">{{ fechaHora | date: 'hh:mm a' }}</span></p>
-    <p><strong>Total Horas: </strong>{{getTotalHoras() | number}}</p>
-    <p><strong>Tarifa: </strong><span *ngIf="parqueoSelected">{{getTarifa() | currency: '$' }} por Hora</span></p>
-    <p><strong>Total Pagar: </strong>{{getTotalPagar() | currency: '$'}}</p>
+    <p id="NoPlaca"><strong>No. Placa: </strong>{{parqueoSelected?.NoPlaca}}</p>
+    <p id="Marca"><strong>Marca: </strong>{{parqueoSelected?.Marca}}</p>
+    <p id="Color"><strong>Color: </strong>{{parqueoSelected?.Color}}</p>
+    <p id="Entrada"><strong>Entrada: </strong>{{parqueoSelected?.Entrada | date: 'hh:mm a'}}</p>
+    <p id="Salida"><strong>Salida: </strong><span *ngIf="parqueoSelected">{{ fechaHora | date: 'hh:mm a' }}</span></p>
+    <p id="TotalHoras"><strong>Total Horas: </strong>{{getTotalHoras() | number}}</p>
+    <p id="Tarifa"><strong>Tarifa: </strong><span *ngIf="parqueoSelected">{{getTarifa() | currency: '$' }} por Hora</span></p>
+    <p id="TotalPagar"><strong>Total Pagar: </strong>{{getTotalPagar() | currency: '$'}}</p>
 
 
-    <button [disabled]="!parqueoSelected" (click)="despachar()" type="button" class="btn btn-primary">Despachar</button>
+    <button id="DepacharBtn" [disabled]="!parqueoSelected" (click)="despachar()" type="button" class="btn btn-primary">Despachar</button>
 </div>

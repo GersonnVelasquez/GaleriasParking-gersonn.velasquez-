@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SecurityGuard } from '@core/guard/security.guard';
-import { HomeComponent } from '@home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/parqueo', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [SecurityGuard] },
+  { path: '', redirectTo: '/parqueo/resumen', pathMatch: 'full' },
   { path: 'parqueo', loadChildren: () => import('./feature/parqueo/parqueo.module').then(mod => mod.ParqueoModule) }
 ];
 

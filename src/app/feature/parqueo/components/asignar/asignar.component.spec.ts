@@ -5,11 +5,14 @@ import * as Rx from 'rxjs';
 import { AsignarComponent } from './asignar.component';
 import { SharedModule } from '@shared/shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 
 describe('AsignarComponent', () => {
   let component: AsignarComponent;
   let fixture: ComponentFixture<AsignarComponent>;
+
   let ParqueoServiceStub: Partial<ParqueoService>;
+
   const mockParqueos: Parqueo[] = [
     new Parqueo(
       1,
@@ -21,6 +24,10 @@ describe('AsignarComponent', () => {
       true
     )
   ];
+
+  const mockRouter = {
+    navigateByUrl: jasmine.createSpy('navigate')
+  };
 
   ParqueoServiceStub = {
     consultarDisponibles: () => {
@@ -36,7 +43,10 @@ describe('AsignarComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [AsignarComponent],
       imports: [SharedModule, RouterTestingModule],
-      providers: [{ provide: ParqueoService, useValue: ParqueoServiceStub }]
+      providers: [
+        { provide: ParqueoService, useValue: ParqueoServiceStub },
+        { provide: Router, useValue: mockRouter },
+      ]
     })
       .compileComponents();
   });
@@ -110,6 +120,34 @@ describe('AsignarComponent', () => {
 
     expect(asignarBtn.disabled).toBeFalse();
 
+  });
+
+
+  it('Debe asignar parqueo al dar click y regresar a Resumen', () => {
+    const UbicacionSelect = fixture.debugElement.nativeElement.querySelector('#UbicacionSelect');
+    const NoPlacaInput = fixture.debugElement.nativeElement.querySelector('#NoPlacaInput');
+    const MarcaInput = fixture.debugElement.nativeElement.querySelector('#MarcaInput');
+    const ColorInput = fixture.debugElement.nativeElement.querySelector('#ColorInput');
+
+    UbicacionSelect.value = 'A1';
+    UbicacionSelect.dispatchEvent(new Event('change'));
+
+    NoPlacaInput.value = 'H11231';
+    NoPlacaInput.dispatchEvent(new Event('input'));
+
+    MarcaInput.value = 'Honda';
+    MarcaInput.dispatchEvent(new Event('input'));
+
+    ColorInput.value = 'Azul';
+    ColorInput.dispatchEvent(new Event('input'));
+
+    const asignarBtn = fixture.nativeElement.querySelector('#asignarBtn');
+
+    fixture.detectChanges();
+
+    asignarBtn.click();
+
+    expect(mockRouter.navigateByUrl).toHaveBeenCalledWith('/parqueo/resumen');
   });
 
 });
