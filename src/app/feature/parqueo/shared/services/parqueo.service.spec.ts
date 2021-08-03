@@ -130,7 +130,7 @@ describe('ParqueoService', () => {
     service.asignarDespacharParqueo(dummyParqueo).subscribe(res => {
       expect(res).toEqual(true);
     });
-    const req = httpMock.expectOne(` ${environment.endpoint}/parqueos/${dummyParqueo.id}`);
+    const req = httpMock.expectOne(`${environment.endpoint}/parqueos/${dummyParqueo.id}`);
     expect(req.request.method).toBe('PUT');
     req.event(new HttpResponse<boolean>({ body: true }));
 
