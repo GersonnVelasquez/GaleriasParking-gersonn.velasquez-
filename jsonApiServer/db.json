@@ -3,11 +3,11 @@
     {
       "id": 1,
       "Ubicacion": "A1",
-      "NoPlaca": "H2ASW123",
-      "Marca": "HONDA",
-      "Color": "AZUL",
-      "Entrada": "2021-08-03T02:47:25.986Z",
-      "Disponible": false
+      "NoPlaca": null,
+      "Marca": null,
+      "Color": null,
+      "Entrada": null,
+      "Disponible": true
     },
     {
       "id": 2,
