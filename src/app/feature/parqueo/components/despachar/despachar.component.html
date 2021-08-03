@@ -3,7 +3,7 @@
 
     <div class="mb-3">
         <label for="Ubicacion" class="form-label">Ubicación:</label>
-        <select #Parqueo (change)="setParqueoInfo(Parqueo.value)" class="form-select" id="UbicacionSelect" name="Ubicacion">
+        <select #Parqueo (change)="setParqueoInfo(Parqueo.value)" class="form-select" id="UbicacionSelect" name="UbicacionSelect">
             <option selected disabled>Seleccion un parqueo</option>
             <option *ngFor="let parqueo of parqueosOcupados; trackBy: 'id' | trackBy" [value]="parqueo.Ubicacion">
                 {{parqueo.Ubicacion}}

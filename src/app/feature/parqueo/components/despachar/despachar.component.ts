@@ -75,8 +75,8 @@ export class DespacharComponent implements OnInit {
 
 
   despachar() {
+    this.parqueoSelected.reset();
     this.parqueoService.asignarDespacharParqueo(this.parqueoSelected).subscribe(() => {
-      this.parqueoSelected.reset();
       this.toResumen();
     });
   }

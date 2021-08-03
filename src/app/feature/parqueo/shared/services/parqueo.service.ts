@@ -23,7 +23,7 @@ export class ParqueoService {
 
 
   public asignarDespacharParqueo(parqueoAsignado: Parqueo) {
-    return this.http.doPut<Parqueo, boolean>(` ${environment.endpoint}/parqueos/${parqueoAsignado.id}`, parqueoAsignado,
+    return this.http.doPut<Parqueo, boolean>(`${environment.endpoint}/parqueos/${parqueoAsignado.id}`, parqueoAsignado,
       this.http.optsName('Asignar Parqueo / Update'));
   }
 

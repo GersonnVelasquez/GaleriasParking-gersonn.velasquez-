@@ -4,7 +4,7 @@
     <form [formGroup]="asignarVehiculoForm" (ngSubmit)="asignar()">
         <div class="mb-3">
             <label for="UbicacionSelect" class="form-label">Ubicación:</label>
-            <select class="form-select" validar id="UbicacionSelect" name="Ubicacion" formControlName="Ubicacion">
+            <select class="form-select" validar id="UbicacionSelect" name="UbicacionSelect" formControlName="Ubicacion">
                 <option *ngFor="let parqueo of parqueosDisponibles; trackBy: 'id' | trackBy"
                     [value]="parqueo.Ubicacion">
                     {{parqueo.Ubicacion}}
@@ -14,22 +14,22 @@
 
         <div class="mb-3">
             <label for="NoPlacaInput" class="form-label">No. Placa:</label>
-            <input validar type="text" class="form-control" id="NoPlacaInput" formControlName="NoPlaca">
+            <input validar type="text" class="form-control" id="NoPlacaInput" name="NoPlacaInput"  formControlName="NoPlaca">
         </div>
         <div class="mb-3">
             <label for="MarcaInput" class="form-label">Marca:</label>
-            <input validar type="text" class="form-control" id="MarcaInput" formControlName="Marca">
+            <input validar type="text" class="form-control" id="MarcaInput" name="NoPMarcaInputlacaInput" formControlName="Marca">
         </div>
         <div class="mb-3">
             <label for="ColorInput" class="form-label">Color:</label>
-            <input validar type="text" class="form-control" id="ColorInput" formControlName="Color">
+            <input validar type="text" class="form-control" id="ColorInput" name="ColorInput" formControlName="Color">
         </div>
         <div class="mb-3">
             <label for="EntradaInput" class="form-label">Entrada:</label>
-            <input type="text" class="form-control" id="EntradaInput" disabled [value]="fechaHora | date: 'hh:mm a'">
+            <input type="text" class="form-control" id="EntradaInput" name="EntradaInput" disabled [value]="fechaHora | date: 'hh:mm a'">
         </div>
 
-        <button [disabled]="asignarVehiculoForm.invalid" id="asignarBtn" type="submit"
+        <button [disabled]="asignarVehiculoForm.invalid" id="asignarBtn" name="asignarBtn" type="submit"
             class="btn btn-primary">Asignar</button>
     </form>
 </div>
